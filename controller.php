@@ -16,7 +16,7 @@ move_uploaded_file($tmp_name, $upload_path);
 $sql = "INSERT INTO berita (judul, konten, image, category_id, created_at)
         VALUES (?, ?, ?, ?, NOW())";
 
-$stmt = $koneksi->prepare($sql);
+$stmt = $conn->prepare($sql);
 $stmt->bind_param("sssi", $title, $content, $gambar_name, $category_id);
 
 if ($stmt->execute()) {
