@@ -20,7 +20,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("sssi", $title, $content, $gambar_name, $category_id);
 
 if ($stmt->execute()) {
-    echo "Berita berhasil disimpan. <a href='index.php'>Lihat berita</a>";
+    echo "Berita berhasil disimpan. <a href='daftarberita.php'>Lihat berita</a>";
 } else {
     echo "Gagal menyimpan berita: " . $stmt->error;
 }

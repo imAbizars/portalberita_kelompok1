@@ -3,6 +3,8 @@ session_start();
 include 'koneksi.php';
 
 $timeout = 1800;
+
+// login dan role
 if (!isset($_SESSION['user'])) {
     header("Location: login.php?unauthorized=1");
     exit();
@@ -19,49 +21,42 @@ if ($_SESSION['role'] !== 'admin') {
     echo "Akses ditolak. Halaman ini hanya untuk admin.";
     exit();
 }
+
+//  aktif
+$page = $_GET['page'] ?? 'tambahberita';
+
+$allowed_pages = ['tambahberita', 'daftarberita'];
+if (!in_array($page, $allowed_pages)) {
+    $page = 'tambahberita';
+}
+
+// judul halaman 
+$page_titles = [
+    'tambahberita' => 'Tambah Berita',
+    'daftarberita' => 'Daftar Berita',
+];
+
+$judul_halaman = $page_titles[$page] ?? 'Dashboard';
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tambah Berita</title>
+  <title>Dashboard Admin</title>
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
   <div class="dashboard-container">
-    <nav class="sidebar">
-      <h3>Admin Panel</h3>
-      <ul>
-        <li><a href="dashboard.php">Tambah Berita</a></li>
-        <li><a href="daftarberita.php">Daftar Berita</a></li>
-        <li><a href="logout.php">Logout</a></li>
-      </ul>
-    </nav>
+
+    <!-- sidebar -->
+    <?php include 'sidebar.php'; ?>
+
+    <!-- main content -->
     <main class="main-content">
-      <div class="container">
-        <h2>Tambah Berita</h2>
-        <form action="controller.php" method="POST" enctype="multipart/form-data">
-          <label>Judul Berita:</label><br>
-          <input type="text" name="title" required><br><br>
-  
-          <label>Isi Berita:</label><br>
-          <textarea name="content" rows="5" cols="50" required></textarea><br><br>
-          
-          <label>Kategori:</label><br>
-          <select name="category_id" required>
-            <option value="">-- Pilih Kategori --</option>
-            <?php
-              $result = $conn->query("SELECT * FROM kategori");
-              while ($row = $result->fetch_assoc()) {
-                echo "<option value='{$row['id']}'>{$row['nama_kategori']}</option>";
-              }
-            ?>
-          </select><br><br>
-  
-          <label>Gambar:</label><br>
-          <input type="file" name="image" accept="image/*" required><br><br>
-  
-          <input type="submit" value="Buat Berita">
-        </form>
+      <nav class="main-header">
+        <h3><?= $judul_halaman ?></h3>
+      </nav>
+      <div class="form-container">
+        <?php include $page . '.php'; ?>
       </div>
     </main>
   </div>
