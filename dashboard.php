@@ -55,9 +55,7 @@ $judul_halaman = $page_titles[$page] ?? 'Dashboard';
       <nav class="main-header">
         <h3><?= $judul_halaman ?></h3>
       </nav>
-      <div class="form-container">
         <?php include $page . '.php'; ?>
-      </div>
     </main>
   </div>
 </body>

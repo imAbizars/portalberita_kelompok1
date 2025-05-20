@@ -60,6 +60,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="password" name="password" required><br><br>
                     <button type="submit">Login</button>
                 </form>
+                <?php if (isset($_GET['logout']) && $_GET['logout'] == 1): ?>
+                    <div class="alert success">Anda telah berhasil logout.</div>
+                <?php endif; ?>
             </div>
         </div>
         <div class="image">

@@ -16,10 +16,11 @@ body {
 /* Sidebar */
 .sidebar {
   width: 220px;
-  background-color: #2c3e50;
+  background-color: #111111;
   color: white;
   display: flex;
   flex-direction: column;
+  border-right: 2px solid rgb(58, 58, 58);
 }
 
 .sidebar-header {
@@ -52,26 +53,27 @@ body {
 }
 
 .sidebar-menu a:hover {
-  background-color: #34495e;
+  background-color: #272727;
 }
 
 /* Main Content */
 .main-content {
   flex: 1;
-  background-color: rgb(123, 156, 167);
+  background-color:#272727;
   overflow-y: auto;
   color: white;
+  
 }
 
 .main-header {
-  background-color: #2c3e50;
+  background-color: #111111;
   color: white;
   padding: 3px 20px;
   box-shadow: 0 4px 4px rgba(0,0,0,0.3);
 }
 
 .form-container {
-  padding-left: 20px;
+  padding-left: 40px;
   width: 40rem;
 }
 .form-container h4{
@@ -93,7 +95,7 @@ form input[type="file"] {
 
 form input[type="submit"] {
   padding: 10px 20px;
-  background-color: #2980b9;
+  background-color: #3a3a3a;
   color: white;
   border: none;
   cursor: pointer;
@@ -101,29 +103,32 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-  background-color: #3498db;
+  background-color: #4b4b4b;
 }
-
+.table-container{
+  background-color: #272727;
+}
 table {
   width: 100%;
   border-collapse: collapse;
-  background-color: rgb(41, 40, 40);
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-table thead {
-  background-color: #3498db;
-  color: white;
+table thead th {
+  color: rgb(141, 141, 141);
+  background-color: #272727;
+  font-weight: bold;
 }
 
 table th, table td {
+  color: rgb(255, 255, 255);
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #3f3f3f; /* border antar sel */
 }
 
 table tbody tr:hover {
-  background-color: #f1f1f1;
+  background-color: #333232; /* warna hover lebih terang */
 }
 
 img {
