@@ -19,5 +19,6 @@ $result = $conn->query($query)
       </div>
     <?php endwhile; ?>
   </div>
+  <div class="dots" id="dots"></div>
 </div>
 

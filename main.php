@@ -15,18 +15,41 @@ $result = $conn->query($query)
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
 </head>
+<!-- ini script untuk slider -->
     <script>
         window.addEventListener('DOMContentLoaded', () => {
         let slider = document.querySelector('.slider');
         let slides = document.querySelectorAll('.slide');
-        let index = 0;
+        const dotsContainer = document.getElementById('dots');
+         let currentIndex = 0;
+
+        slides.forEach((_, index) => {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function goToSlide(index) {
+            currentIndex = index;
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            updateDots();
+        }
+
+        function updateDots() {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentIndex].classList.add('active');
+        }
 
         setInterval(() => {
-            index = (index + 1) % slides.length;
-            slider.style.transform = `translateX(-${index * 100}%)`;
-        }, 3000);
-    });
-</script>
+            currentIndex = (currentIndex + 1) % slides.length;
+            goToSlide(currentIndex);
+        }, 4000);
+            });
+    </script>
 
 <body>
     <?php include "navbar.php";?>
@@ -42,6 +65,7 @@ $result = $conn->query($query)
     </div>
     <div class="container">
          <div class="left-content">
+            <h3>Hot News</h3>
             <!-- slider -->
             <?php include "slider.php";?>
             <div class="content">
