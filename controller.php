@@ -12,13 +12,21 @@ $upload_path = $folder . basename($gambar_name);
 
 move_uploaded_file($tmp_name, $upload_path);
 
-$sql = "INSERT INTO berita (judul, konten, image, category_id, created_at)
-        VALUES ('$title', '$content', '$gambar_name', $category_id, NOW())";
+// Gunakan prepared statement
+$stmt = $conn->prepare("INSERT INTO berita (judul, konten, image, category_id, created_at) VALUES (?, ?, ?, ?, NOW())");
 
-if ($conn->query($sql) === TRUE) {
-    header("Location: dashboard.php?page=daftarberita");
-    exit();
+if ($stmt) {
+    $stmt->bind_param("sssi", $title, $content, $gambar_name, $category_id);
+
+    if ($stmt->execute()) {
+        header("Location: dashboard.php?page=daftarberita");
+        exit();
+    } else {
+        echo "Gagal menambahkan berita: " . $stmt->error;
+    }
+
+    $stmt->close();
 } else {
-    echo "Gagal menambahkan berita: " . $conn->error;
+    echo "Prepare failed: " . $conn->error;
 }
 ?>

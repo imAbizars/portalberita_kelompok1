@@ -1,0 +1,23 @@
+<?php
+include "koneksi.php";
+
+$query = "SELECT b.id, b.judul, b.konten, k.nama_kategori, b.image, b.created_at 
+          FROM berita b 
+          JOIN kategori k ON b.category_id = k.id 
+          WHERE k.nama_kategori = 'hot'
+          ORDER BY b.created_at DESC";
+$result = $conn->query($query)
+?>
+<div class="slider-container">
+  <div class="slider">
+    <?php while($row = $result->fetch_assoc()): ?>
+      <div class="slide">
+        <div class="image-wrapper">
+          <img src="images/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>">
+          <div class="caption"><?= htmlspecialchars($row['judul']) ?></div>
+        </div>
+      </div>
+    <?php endwhile; ?>
+  </div>
+</div>
+
