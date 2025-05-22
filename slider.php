@@ -13,7 +13,7 @@ $result = $conn->query($query)
     <?php while($row = $result->fetch_assoc()): ?>
       <div class="slide">
         <div class="image-wrapper">
-          <img src="images/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>">
+          <img src="images/<?= htmlspecialchars($row['image']) ?>" alt="<?= htmlspecialchars($row['judul']) ?>" draggable="false">
           <div class="caption"><?= htmlspecialchars($row['judul']) ?></div>
         </div>
       </div>

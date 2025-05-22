@@ -48,6 +48,40 @@ $result = $conn->query($query)
             currentIndex = (currentIndex + 1) % slides.length;
             goToSlide(currentIndex);
         }, 4000);
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX;
+            slider.style.transition = 'none';
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        slider.addEventListener('mouseup', (e) => {
+            if (!isDown) return;
+            isDown = false;
+
+            const deltaX = e.pageX - startX;
+            if (deltaX > 50 && currentIndex > 0) {
+                currentIndex--;
+            } else if (deltaX < -50 && currentIndex < slides.length - 1) {
+                currentIndex++;
+            }
+            slider.style.transition = 'transform 0.5s ease';
+            goToSlide(currentIndex);
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            const x = e.pageX;
+            const walk = x - startX;
+            slider.style.transform = `translateX(-${currentIndex * 100 - (walk / slider.offsetWidth) * 100}%)`;
+        });
             });
     </script>
 
@@ -65,7 +99,10 @@ $result = $conn->query($query)
     </div>
     <div class="container">
          <div class="left-content">
-            <h3>Hot News</h3>
+            <div class="caution">
+                <div class="circle"></div>
+                <h3>Hot News</h3>
+            </div>
             <!-- slider -->
             <?php include "slider.php";?>
             <div class="content">
