@@ -1,12 +1,14 @@
 <?php
 include "koneksi.php";
 
-$query = "SELECT b.id, b.judul
-          FROM berita b 
-          JOIN kategori k ON b.category_id = k.id 
+$query = "SELECT DISTINCT b.id, b.judul, b.created_at
+          FROM berita b
+          JOIN berita_kategori bk ON b.id = bk.berita_id
+          JOIN kategori k ON bk.kategori_id = k.id
           WHERE k.nama_kategori = 'news'
           ORDER BY b.created_at DESC";
-$result = $conn->query($query)
+$result = $conn->query($query);
+
 ?>
 <html lang="en">
 <head>
@@ -15,74 +17,97 @@ $result = $conn->query($query)
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
 </head>
-<!-- ini script untuk slider -->
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-        let slider = document.querySelector('.slider');
-        let slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.getElementById('dots');
-         let currentIndex = 0;
+<script>
+        //slider
+    window.addEventListener('DOMContentLoaded', () => {
+    let slider = document.querySelector('.slider');
+    let slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dots');
+        let currentIndex = 0;
 
-        slides.forEach((_, index) => {
-            const dot = document.createElement('span');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(index));
-            dotsContainer.appendChild(dot);
-        });
+    slides.forEach((_, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
 
-        const dots = document.querySelectorAll('.dot');
+    const dots = document.querySelectorAll('.dot');
 
-        function goToSlide(index) {
-            currentIndex = index;
-            slider.style.transform = `translateX(-${index * 100}%)`;
-            updateDots();
+    function goToSlide(index) {
+        currentIndex = index;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+        updateDots();
+    }
+
+    function updateDots() {
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[currentIndex].classList.add('active');
+    }
+
+    setInterval(() => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        goToSlide(currentIndex);
+    }, 4000);
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX;
+        slider.style.transition = 'none';
+    });
+
+    slider.addEventListener('mouseleave', () => {
+        isDown = false;
+    });
+
+    slider.addEventListener('mouseup', (e) => {
+        if (!isDown) return;
+        isDown = false;
+
+        const deltaX = e.pageX - startX;
+        if (deltaX > 50 && currentIndex > 0) {
+            currentIndex--;
+        } else if (deltaX < -50 && currentIndex < slides.length - 1) {
+            currentIndex++;
         }
+        slider.style.transition = 'transform 0.5s ease';
+        goToSlide(currentIndex);
+    });
 
-        function updateDots() {
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[currentIndex].classList.add('active');
-        }
-
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % slides.length;
-            goToSlide(currentIndex);
-        }, 4000);
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX;
-            slider.style.transition = 'none';
+    slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        const x = e.pageX;
+        const walk = x - startX;
+        slider.style.transform = `translateX(-${currentIndex * 100 - (walk / slider.offsetWidth) * 100}%)`;
+    });
         });
 
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
+    //kategori
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const beritaBoxes = document.querySelectorAll('.berita-box');
 
-        slider.addEventListener('mouseup', (e) => {
-            if (!isDown) return;
-            isDown = false;
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const selectedKategori = button.dataset.kategori;
 
-            const deltaX = e.pageX - startX;
-            if (deltaX > 50 && currentIndex > 0) {
-                currentIndex--;
-            } else if (deltaX < -50 && currentIndex < slides.length - 1) {
-                currentIndex++;
-            }
-            slider.style.transition = 'transform 0.5s ease';
-            goToSlide(currentIndex);
-        });
+                beritaBoxes.forEach(box => {
+                const kategoriList = box.dataset.kategori.split(',').map(k => k.trim());
 
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            const x = e.pageX;
-            const walk = x - startX;
-            slider.style.transform = `translateX(-${currentIndex * 100 - (walk / slider.offsetWidth) * 100}%)`;
-        });
+                if (selectedKategori === 'all' || kategoriList.includes(selectedKategori)) {
+                    box.style.display = 'block';
+                } else {
+                    box.style.display = 'none';
+                }
+                });
             });
+        });
+
+    });
     </script>
 
 <body>
@@ -107,10 +132,13 @@ $result = $conn->query($query)
             <?php include "slider.php";?>
             <div class="content">
                 <h1>Selamat Datang Di Portal Berita</h1>
+                <h3 class="subjudul">Berita Kekinian, Buat Kamu yang Penasaran.</h3>
+                <?php include "box.php";?>
             </div>
          </div>
          <div class="list-berita">
-
+            <?php
+            ?>
          </div>       
     </div>  
   </main>

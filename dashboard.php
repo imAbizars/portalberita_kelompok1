@@ -2,7 +2,7 @@
 session_start();
 include 'koneksi.php';
 
-$timeout = 1800;
+$timeout = 3600;
 
 // login dan role
 if (!isset($_SESSION['user'])) {

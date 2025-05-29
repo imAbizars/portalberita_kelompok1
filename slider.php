@@ -1,12 +1,14 @@
 <?php
 include "koneksi.php";
 
+
 $query = "SELECT b.id, b.judul, b.konten, k.nama_kategori, b.image, b.created_at 
-          FROM berita b 
-          JOIN kategori k ON b.category_id = k.id 
+          FROM berita b
+          JOIN berita_kategori bk ON b.id = bk.berita_id
+          JOIN kategori k ON bk.kategori_id = k.id
           WHERE k.nama_kategori = 'hot'
           ORDER BY b.created_at DESC";
-$result = $conn->query($query)
+$result = $conn->query($query);
 ?>
 <div class="slider-container">
   <div class="slider">

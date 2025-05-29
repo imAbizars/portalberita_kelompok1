@@ -1,10 +1,13 @@
 <?php
 include 'koneksi.php';
 
-$query = "SELECT b.id, b.judul, b.konten, k.nama_kategori, b.image, b.created_at 
-          FROM berita b 
-          JOIN kategori k ON b.category_id = k.id 
-          ORDER BY b.created_at DESC";
+$query = "SELECT b.id, b.judul, b.konten, b.image, b.created_at,
+        GROUP_CONCAT(k.nama_kategori SEPARATOR ', ') AS kategori
+        FROM berita b
+        JOIN berita_kategori bk ON b.id = bk.berita_id
+        JOIN kategori k ON bk.kategori_id = k.id
+        GROUP BY b.id
+        ORDER BY b.created_at DESC";
 $result = $conn->query($query); 
 ?>
 <div class="table-container">
@@ -28,7 +31,7 @@ $result = $conn->query($query);
               echo "<tr>";
               echo "<td>{$no}</td>";
               echo "<td>{$row['judul']}</td>";
-              echo "<td>{$row['nama_kategori']}</td>";
+              echo "<td>{$row['kategori']}</td>";
               echo "<td>" . substr(strip_tags($row['konten']), 0, 100) . "...</td>";
               echo "<td><img src='images/{$row['image']}' alt='Gambar' width='80'></td>";
               echo "<td>{$row['created_at']}</td>";

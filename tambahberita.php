@@ -9,15 +9,17 @@
       <textarea name="content" rows="5" cols="50" required></textarea><br><br>
     
       <label>Kategori:</label><br>
-      <select name="category_id" required>
-        <option value="">-- Pilih Kategori --</option>
-        <?php
-          $result = $conn->query("SELECT * FROM kategori");
-          while ($row = $result->fetch_assoc()) {
-            echo "<option value='{$row['id']}'>{$row['nama_kategori']}</option>";
-          }
-        ?>
-      </select><br><br>
+      <?php
+        $result = $conn->query("SELECT * FROM kategori");
+        while ($row = $result->fetch_assoc()) {
+          $id = $row['id'];
+          $nama = ucwords($row['nama_kategori']); // Kapital di depan
+          echo "<label><input type='checkbox' name='category_ids[]' value='$id'> $nama</label><br>";
+        }
+      ?>
+      <br>
+
+
     
       <label>Gambar:</label><br>
       <input type="file" name="image" accept="image/*" required><br><br>
