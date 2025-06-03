@@ -4,37 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami</title>
     <link rel="stylesheet" href="main.css">
-    <script>
-        const slider = document.querySelector('.team-container');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-    
-        slider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            slider.classList.add('active');
-            startX = e.pageX - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        });
-    
-        slider.addEventListener('mouseleave', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-    
-        slider.addEventListener('mouseup', () => {
-            isDown = false;
-            slider.classList.remove('active');
-        });
-    
-        slider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - slider.offsetLeft;
-            const walk = (x - startX) * 1.5; // kecepatan scroll
-            slider.scrollLeft = scrollLeft - walk;
-        });
-    </script>
 </head>
 
 <body>
@@ -70,17 +39,75 @@
         <div class="content-tentang2">
             <h1>Ini Kita!</h1>
             <p>Sekarang kenalan yuk sama tim kecil kami</p>
-            <div class="team-container">
-                <div class="team-grid">
-    <div class="team-box"><img src="assets/images/tim1.jpg" alt="Tim 1"><p>Anggota 1</p></div>
-    <div class="team-box"><img src="assets/images/tim2.jpg" alt="Tim 2"><p>Anggota 2</p></div>
-    <div class="team-box"><img src="assets/images/tim3.jpg" alt="Tim 3"><p>Anggota 3</p></div>
-    <div class="team-box"><img src="assets/images/tim4.jpg" alt="Tim 4"><p>Anggota 4</p></div>
-    <div class="team-box"><img src="assets/images/tim5.jpg" alt="Tim 5"><p>Anggota 5</p></div>
-    <div class="team-box"><img src="assets/images/tim6.jpg" alt="Tim 6"><p>Anggota 6</p></div>
-    <div class="team-box"><img src="assets/images/tim7.jpg" alt="Tim 7"><p>Anggota 7</p></div>
-</div>
+            <div class="team-scroll" id="teamScroll" >
+                <div class="team-box">
+                <img src="./assets/team/team1.jpg" alt="Tim 1" draggable="false">
+                <h3>Haviza Amara Putri</h3>
+                <p>"Cintailah kucing"</p>
+                </div>
+                <div class="team-box">
+                <img src="./assets/team/team2.jpg" alt="Tim 2">
+                <h3>Hazel Altian Athallah</h3>
+                <p>"Lebih baik ditakuti daripada dicintai"</p>
+                </div>
+                <div class="team-box">
+                <img src="./assets/team/team3.jpg" alt="Tim 3">
+                <h3>Yoktan Farely</h3>
+                <p>"Tidak ada"</p>
+                </div>
+                <div class="team-box">
+                <img src="assets/team/team4.jpg" alt="Tim 4">
+                <h3>Rahul Dwi Putra</h3>
+                <p>"Jangan lupa mandi biar wangy"</p>
+                </div>
+                <div class="team-box">
+                <img src="assets/images/t5.jpg" alt="Tim 5">
+                <h3>Floria Hilary Heda</h3>
+                </div>
+                <div class="team-box">
+                <img src="assets/team/team5.jpg" alt="Tim 6">
+                <h3>Wika Muhammad Maulana</h3>
+                <p>"HIdup cuma sekali,makan mie ayam enak"</p>
+                </div>
+                <div class="team-box">
+                <img src="assets/images/tim7.jpg" alt="Tim 7">
+                <h3>Dennis Abizar</h3>
+                </div>
+            </div>
         </div>
+
     </main>
+    <script>
+        const teamScroll = document.getElementById("teamScroll");
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        teamScroll.addEventListener("mousedown", (e) => {
+        isDown = true;
+        teamScroll.classList.add("active");
+        startX = e.pageX - teamScroll.offsetLeft;
+        scrollLeft = teamScroll.scrollLeft;
+        });
+
+        teamScroll.addEventListener("mouseleave", () => {
+        isDown = false;
+        teamScroll.classList.remove("active");
+        });
+
+        teamScroll.addEventListener("mouseup", () => {
+        isDown = false;
+        teamScroll.classList.remove("active");
+        });
+
+        teamScroll.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - teamScroll.offsetLeft;
+        const walk = (x - startX) * 1.0; // kecepatan scroll
+        teamScroll.scrollLeft = scrollLeft - walk;
+        });
+    </script>
+
 </body>
 </html>

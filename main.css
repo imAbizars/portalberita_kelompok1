@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -9,7 +10,7 @@ nav {
   top: 0;
   display: flex;
   align-items: center;
-  background-color: #000000;
+  background-color: #1a1a1a;
   padding: 20px 10px 20px 40px;  
   position: sticky;  
   z-index: 999;
@@ -290,10 +291,40 @@ nav .register:hover{
   background-color: #3d3d3d;
 }
 
+/* detail */
+.detail{
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.detail img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 400px;
+  margin-bottom: 20px;
+}
+
+.meta {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.konten {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* tentang */
 .main-tentang{
   color: white;
   margin: 0;
-  border: 2px solid white;
 }
 .content-tentang{
   display: flex;
@@ -340,33 +371,103 @@ nav .register:hover{
     background-color: rgb(56, 56, 56);
     padding: 20px 30px 20px 30px;
 }
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 kolom */
-    gap: 20px;
-    margin-top: 20px;
+
+.team-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  margin: 30px auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+.team-scroll p{
+  font-style: italic;
+}
+.team-scroll::-webkit-scrollbar {
+  display: none; /* Sembunyikan scrollbar */
 }
 
 .team-box {
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
-    padding: 0;
+  min-width: 250px;
+  min-width: 250px;
+  flex-shrink: 0;
+  background-color: #545454;
+  padding: 10px;
+  text-align: center;
+  border-radius: 10px;  
+  color: white;
+  
 }
 
 .team-box img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.team-scroll {
+  user-select: none; /* cegah seleksi teks */
 }
 
-.team-box p {
-    margin: 0;
-    padding: 10px;
-    font-weight: bold;
-    background-color: white;
-    color: black;
+.team-scroll img {
+  pointer-events: none; /* cegah gambar dari ikut drag */
+}
+
+.faq{
+  border: 2px solid white;
+  color: white;
+  display: flex;
+}
+.faq-container{
+  padding: 40px 30px 40px 30px;
+  
+}
+.faq-container h1{
+  margin-bottom: 50px;
+}
+.faq-item{
+  margin-bottom: 10px;
+  max-width: 60rem;
+}
+.faq-question{
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(30, 30, 30);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background-color: #343434;
+  padding: 0 20px;
+  transition: 0.3s ease-in-out;
+  margin: 0 10px 0 10px;
+}
+.faq-answer li{
+  
+}
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+    font-size: 24px;
+}
+ .faq-item.active .faq-question::after {
+      transform: rotate(50deg);
+}
+.faq-item.active .faq-answer {
+      max-height: 300px; /* cukup besar untuk konten */
+      padding: 20px;
+}
+.faq-img img {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  filter: brightness(80%);
 }

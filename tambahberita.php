@@ -6,7 +6,7 @@
       <input type="text" name="title" required><br><br>
     
       <label>Isi Berita:</label><br>
-      <textarea name="content" rows="5" cols="50" required></textarea><br><br>
+      <textarea name="content" id="editor" rows="10" cols="80" required></textarea><br><br>
     
       <label>Kategori:</label><br>
       <?php

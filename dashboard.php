@@ -58,5 +58,9 @@ $judul_halaman = $page_titles[$page] ?? 'Dashboard';
         <?php include $page . '.php'; ?>
     </main>
   </div>
+  <script src="https://cdn.ckeditor.com/4.21.0/standard/ckeditor.js"></script>
+<script>
+  CKEDITOR.replace('editor');
+</script>
 </body>
 </html>
