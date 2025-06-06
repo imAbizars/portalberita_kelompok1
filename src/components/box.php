@@ -1,6 +1,6 @@
 <?php
-include 'koneksi.php';
-include 'fetchberita.php';
+include '../db/koneksi.php';
+include '../utils/fetchberita.php';
 
 $querykategori = "SELECT id, nama_kategori FROM kategori";
 $resultkategori = $conn->query($querykategori);
@@ -20,7 +20,7 @@ $resultkategori = $conn->query($querykategori);
     <div class="berita-grid">
         <?php while($row = $result->fetch_assoc()): ?>
             <div class="berita-box" data-kategori="<?= $row['nama_kategori']; ?>">
-                <img src="images/<?= $row['image']; ?>" alt="<?= $row['judul']; ?>">
+                <img src="../../images/<?= $row['image']; ?>" alt="<?= $row['judul']; ?>">
                 <h3><?= $row['judul']; ?></h3>
                 
                 <div class="berita-content"> <!-- GANTI INI -->

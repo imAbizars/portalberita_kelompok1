@@ -3,11 +3,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../main.css">
 </head>
 
 <body>
-    <?php include "navbar.php";?>
+    <?php include "../components/navbar.php";?>
     <main class="main-tentang">
         <div class="content-tentang">
             <div>
@@ -33,7 +33,7 @@
                 </p>
             </div>
             <div class="img-tentang">
-                <img src=".../../assets/images/teamwork.jpg" alt="">
+                <img src="../../assets/images/teamwork.jpg" alt="">
             </div>
         </div>
         <div class="content-tentang2">
@@ -41,36 +41,36 @@
             <p>Sekarang kenalan yuk sama tim kecil kami</p>
             <div class="team-scroll" id="teamScroll" >
                 <div class="team-box">
-                <img src="./assets/team/team1.jpg" alt="Tim 1" draggable="false">
+                <img src="../../assets/team/team1.jpg" alt="Tim 1" draggable="false">
                 <h3>Haviza Amara Putri</h3>
                 <p>"Cintailah kucing"</p>
                 </div>
                 <div class="team-box">
-                <img src="./assets/team/team2.jpg" alt="Tim 2">
+                <img src="../../assets/team/team2.jpg" alt="Tim 2">
                 <h3>Hazel Altian Athallah</h3>
                 <p>"Lebih baik ditakuti daripada dicintai"</p>
                 </div>
                 <div class="team-box">
-                <img src="./assets/team/team3.jpg" alt="Tim 3">
+                <img src="../../assets/team/team3.jpg" alt="Tim 3">
                 <h3>Yoktan Farely</h3>
                 <p>"Tidak ada"</p>
                 </div>
                 <div class="team-box">
-                <img src="assets/team/team4.jpg" alt="Tim 4">
+                <img src="../../assets/team/team4.jpg" alt="Tim 4">
                 <h3>Rahul Dwi Putra</h3>
                 <p>"Jangan lupa mandi biar wangy"</p>
                 </div>
                 <div class="team-box">
-                <img src="assets/images/t5.jpg" alt="Tim 5">
+                <img src="../../assets/images/t5.jpg" alt="Tim 5">
                 <h3>Floria Hilary Heda</h3>
                 </div>
                 <div class="team-box">
-                <img src="assets/team/team5.jpg" alt="Tim 6">
+                <img src="../../assets/team/team5.jpg" alt="Tim 6">
                 <h3>Wika Muhammad Maulana</h3>
                 <p>"HIdup cuma sekali,makan mie ayam enak"</p>
                 </div>
                 <div class="team-box">
-                <img src="assets/images/tim7.jpg" alt="Tim 7">
+                <img src="../../assets/images/tim7.jpg" alt="Tim 7">
                 <h3>Dennis Abizar</h3>
                 </div>
             </div>

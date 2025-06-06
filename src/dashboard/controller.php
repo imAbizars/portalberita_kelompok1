@@ -1,11 +1,11 @@
 <?php
-include 'koneksi.php';
+include '../db/koneksi.php';
 $title        = $_POST['title'];
 $content      = $_POST['content'];
 $category_ids = $_POST['category_ids']; // array kategori
 $gambar_name  = $_FILES['image']['name'];
 $tmp_name     = $_FILES['image']['tmp_name'];
-$folder       = "images/";
+$folder       = "../../images/";
 $upload_path  = $folder . basename($gambar_name);
 
 move_uploaded_file($tmp_name, $upload_path);

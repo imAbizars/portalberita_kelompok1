@@ -1,5 +1,5 @@
 <?php
-include "koneksi.php";
+include "../db/koneksi.php";
 
 $query = "SELECT DISTINCT b.id, b.judul, b.created_at
           FROM berita b
@@ -15,7 +15,7 @@ $result = $conn->query($query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../main.css">
 </head>
 <script>
         //slider
@@ -111,7 +111,7 @@ $result = $conn->query($query);
     </script>
 
 <body>
-    <?php include "navbar.php";?>
+    <?php include "../components/navbar.php";?>
   <main>
   <div class="marquee">
         <div class="track">
@@ -129,18 +129,19 @@ $result = $conn->query($query);
                 <h3>Hot News</h3>
             </div>
             <!-- slider -->
-            <?php include "slider.php";?>
+            <?php include "../components/slider.php";?>
             <div class="content">
                 <h1>Selamat Datang Di Portal Berita</h1>
                 <h3 class="subjudul">Berita Kekinian, Buat Kamu yang Penasaran.</h3>
-                <?php include "box.php";?>
+                <?php include "../components/box.php";?>
             </div>
          </div>
          <div class="list-berita">
             <?php
             ?>
          </div>       
-    </div>  
+    </div>
+    <?php include "../components/footer.php";?>  
   </main>
 </body>
 

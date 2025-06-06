@@ -112,7 +112,7 @@ nav .register:hover{
 }
 .container {
   display: flex;
-  height: 100rem;
+  height: 80rem;
 }
 
 .list-berita {
@@ -214,6 +214,8 @@ nav .register:hover{
 }
 .box-berita {
   padding-left: 20px;
+  border: 2px solid white;
+  height: 100%;
 }
 .kategoriberita {
   margin-bottom: 20px;
@@ -470,4 +472,10 @@ nav .register:hover{
   max-width: 600px;
   display: block;
   filter: brightness(80%);
+}
+
+.footer{
+  background-color: #1a1a1a;
+  color: white;
+  padding: 20px;
 }

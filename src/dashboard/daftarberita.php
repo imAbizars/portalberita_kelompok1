@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../db/koneksi.php';
 
 $query = "SELECT b.id, b.judul, b.konten, b.image, b.created_at,
         GROUP_CONCAT(k.nama_kategori SEPARATOR ', ') AS kategori
@@ -33,7 +33,7 @@ $result = $conn->query($query);
               echo "<td>{$row['judul']}</td>";
               echo "<td>{$row['kategori']}</td>";
               echo "<td>" . substr(strip_tags($row['konten']), 0, 100) . "...</td>";
-              echo "<td><img src='images/{$row['image']}' alt='Gambar' width='80'></td>";
+              echo "<td><img src='../../images/{$row['image']}' alt='Gambar' width='80'></td>";
               echo "<td>{$row['created_at']}</td>";
               echo "<td>
                 <form action='hapusberita.php' method='POST' onsubmit=\"return confirm('Yakin ingin menghapus berita ini?');\">

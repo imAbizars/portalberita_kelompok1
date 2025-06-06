@@ -3,13 +3,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../main.css">
 </head>
 <body>
-    <?php include "navbar.php";?>
+    <?php include "../components/navbar.php";?>
     <main class="faq">
     <div class="faq-img">
-        <img src="./assets//images/faq.jpg" alt="">
+        <img src="../../assets//images/faq.jpg" alt="">
     </div>
         <div class="faq-container">
             <h1>Bingung? Temukan Penjelasan di Sini!</h1>

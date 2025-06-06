@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'koneksi.php';
+include '../db/koneksi.php';
 
 $error = '';
 
@@ -21,9 +21,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['last_login'] = time();
 
         if ($user['role'] === 'admin') {
-            header("Location: dashboard.php");
+            header("Location: ../dashboard/dashboard.php");
         } else {
-            header("Location: main.php");
+            header("Location: home.php");
         }
         exit();
     } else {
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../login.css">
     <title>Login</title>
 </head>
 <body>
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
         <div class="image">
-            <img src="./assets/images/gedung1.jpg" alt="Login Image" style="height: 100vh; object-fit: cover;">
+            <img src="../../assets/images/gedung1.jpg" alt="Login Image" style="height: 100vh; object-fit: cover;">
         </div>
     </div>
 </body>

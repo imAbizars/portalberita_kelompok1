@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include '../db/koneksi.php';
 
 if (!isset($_GET['id'])) {
     echo "Berita tidak ditemukan.";
@@ -30,16 +30,16 @@ $berita = $result->fetch_assoc();
 <html>
 <head>
 <title><?= $berita['judul']; ?> - Detail Berita</title>
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="../main.css">
 </head>
 <body >
-    <?php include "navbar.php";?>
+    <?php include "../components/navbar.php";?>
     <div class="detail">
         <h1><?= $berita['judul']; ?></h1>
         <div class="meta">
             <?= date('d M Y', strtotime($berita['created_at'])); ?> | <?= $berita['nama_kategori']; ?>
         </div>
-        <img src="images/<?= $berita['image']; ?>" alt="<?= $berita['judul']; ?>">
+        <img src="../../images/<?= $berita['image']; ?>" alt="<?= $berita['judul']; ?>">
         <div class="konten">
             <?= $berita['konten']; ?>
         </div>
