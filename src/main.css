@@ -115,12 +115,30 @@ nav .register:hover{
   height: 80rem;
 }
 
-.list-berita {
+.listfoods{
   flex: 1; 
-  border: 1px solid black;
   height: 100vh;
+  padding: 20px 5px 10px 5px;
+}
+.listboxfoods{
+  align-items: center;
+  background-color:#141414;
+  display: flex;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 5px;
+  max-height: 70px;
+}
+.listboxfoods img {
+  width: 60px;           
+  height: 60px;         
+  object-fit: cover;
+  border-radius: 8px;     
+}
+.listboxfoods a{
   color: white;
 }
+
 .left-content {
   display: flex;
   flex-direction: column;
@@ -214,7 +232,6 @@ nav .register:hover{
 }
 .box-berita {
   padding-left: 20px;
-  border: 2px solid white;
   height: 100%;
 }
 .kategoriberita {
@@ -242,10 +259,9 @@ nav .register:hover{
 .berita-box {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ddd;
   padding: 15px;
   border-radius: 8px;
-  background: #eeeeee;
+  background: #181818;
   height: 100%;
 }
 
@@ -258,7 +274,7 @@ nav .register:hover{
 
 .berita-box h3 {
   margin: 0 0 10px 0;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .berita-content {
@@ -270,7 +286,7 @@ nav .register:hover{
 .berita-content p {
   flex-grow: 1;
   margin-bottom: 10px;
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .berita-content small {
@@ -332,7 +348,7 @@ nav .register:hover{
   display: flex;
   gap: 7rem;
   margin: 30px auto;
-  padding: 20px 30px 20px 30px;
+  padding: 40px 50px 40px 50px;
 }
 .img-tentang{
   width: 100%;
@@ -371,7 +387,7 @@ nav .register:hover{
 }
 .content-tentang2{
     background-color: rgb(56, 56, 56);
-    padding: 20px 30px 20px 30px;
+    padding: 50px 50px 40px 50px;
 }
 
 .team-scroll {

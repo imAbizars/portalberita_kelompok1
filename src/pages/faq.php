@@ -38,11 +38,11 @@
                 </div>
             </div>
         </div>
-
     </main>
+    <?php include "../components/footer.php";?>
     <script>
-    const faqItems = document.querySelectorAll('.faq-item');
-
+        const faqItems = document.querySelectorAll('.faq-item');
+        
     faqItems.forEach(item => {
       const question = item.querySelector('.faq-question');
       question.addEventListener('click', () => {

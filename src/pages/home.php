@@ -1,14 +1,5 @@
 <?php
 include "../db/koneksi.php";
-
-$query = "SELECT DISTINCT b.id, b.judul, b.created_at
-          FROM berita b
-          JOIN berita_kategori bk ON b.id = bk.berita_id
-          JOIN kategori k ON bk.kategori_id = k.id
-          WHERE k.nama_kategori = 'news'
-          ORDER BY b.created_at DESC";
-$result = $conn->query($query);
-
 ?>
 <html lang="en">
 <head>
@@ -113,15 +104,7 @@ $result = $conn->query($query);
 <body>
     <?php include "../components/navbar.php";?>
   <main>
-  <div class="marquee">
-        <div class="track">
-            <span>
-            <?php while($row = $result->fetch_assoc()): ?>
-                <?= htmlspecialchars($row['judul']) ?> &nbsp;&nbsp;&bull;&nbsp;&nbsp;
-            <?php endwhile; ?>
-            </span>
-        </div>
-    </div>
+    <?php include "../components/marquee.php";?>
     <div class="container">
          <div class="left-content">
             <div class="caution">
@@ -136,10 +119,7 @@ $result = $conn->query($query);
                 <?php include "../components/box.php";?>
             </div>
          </div>
-         <div class="list-berita">
-            <?php
-            ?>
-         </div>       
+         <?php include "../components/listfoods.php";?>     
     </div>
     <?php include "../components/footer.php";?>  
   </main>

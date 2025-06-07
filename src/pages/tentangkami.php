@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-
+        <?php include "../components/footer.php";?>
     </main>
     <script>
         const teamScroll = document.getElementById("teamScroll");

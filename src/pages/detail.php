@@ -34,6 +34,7 @@ $berita = $result->fetch_assoc();
 </head>
 <body >
     <?php include "../components/navbar.php";?>
+    <?php include "../components/marquee.php";?>
     <div class="detail">
         <h1><?= $berita['judul']; ?></h1>
         <div class="meta">
