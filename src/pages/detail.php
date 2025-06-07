@@ -45,8 +45,8 @@ $berita = $result->fetch_assoc();
             <?= $berita['konten']; ?>
         </div>
     
-        <p><a href="index.php">← Kembali ke Berita</a></p>
+        <p><a href="../pages/home.php">← Kembali Beranda</a></p>
     </div>
-
+    <?php include "../components/footer.php";?>
 </body>
 </html>

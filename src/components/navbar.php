@@ -10,7 +10,7 @@
     <?php if (isset($_SESSION['user'])): ?>
         <span style="color:white;">Halo, <?= htmlspecialchars($_SESSION['user']) ?>!</span>
     <?php else: ?>
-        <a class="register" href="../pages/login.php">Register</a>
+        <a class="register" href="../pages/register.php">Register</a>
         <a class="sign-in" href="../pages/login.php">Sign-In</a>
     <?php endif; ?>
 </nav>

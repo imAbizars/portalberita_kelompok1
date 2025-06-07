@@ -10,7 +10,7 @@
     <?php include "../components/navbar.php";?>
     <main class="main-tentang">
         <div class="content-tentang">
-            <div>
+            <div class="perkenalan">
                 <h1>Yuk kenal Kita!</h1>
                 <p>
                     Helloo!!<span id="wave">👋</span>
@@ -61,8 +61,9 @@
                 <p>"Jangan lupa mandi biar wangy"</p>
                 </div>
                 <div class="team-box">
-                <img src="../../assets/images/t5.jpg" alt="Tim 5">
+                <img src="../../assets/team/team6.jpg" alt="Tim 5">
                 <h3>Floria Hilary Heda</h3>
+                <p>"Hadapi dunia dengan tidur yang cukup"</p>
                 </div>
                 <div class="team-box">
                 <img src="../../assets/team/team5.jpg" alt="Tim 6">
@@ -70,8 +71,9 @@
                 <p>"HIdup cuma sekali,makan mie ayam enak"</p>
                 </div>
                 <div class="team-box">
-                <img src="../../assets/images/tim7.jpg" alt="Tim 7">
+                <img src="../../assets/team/team7.jpg" alt="Tim 7">
                 <h3>Dennis Abizar</h3>
+                <p>"Hargai proses meskipun sebutir debu"</p>
                 </div>
             </div>
         </div>

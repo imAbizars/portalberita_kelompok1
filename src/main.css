@@ -308,14 +308,88 @@ nav .register:hover{
 .berita-box a:hover {
   background-color: #3d3d3d;
 }
+/* pages berita */
+
+
+/* Berita Grid */
+.berita{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+    color: white;
+}
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #1a1a1a;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+.news-card a{
+  color: white;
+}
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.news-card h3 {
+    font-size: 18px;
+    margin: 0 0 8px;
+    color: #34495e;
+}
+
+.news-card p {
+    font-size: 14px;
+    margin: 0 0 8px;
+    color: #555;
+}
+
+.news-card small {
+    display: block;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+}
+.news-card-content {
+    flex-grow: 1;
+}
+
+.news-card a.read-more {
+    text-decoration: none;
+    color: #2980b9;
+    font-weight: bold;
+}
+
+.news-card a.read-more:hover {
+    text-decoration: underline;
+}
 
 /* detail */
 .detail{
   color: white;
   font-family: Arial, sans-serif;
-  padding: 20px;
+  padding: 40px;
   max-width: 800px;
   margin: auto;
+  background-color: #141414;
+  border-radius: 20px;
 }
 
 .detail img {
@@ -338,7 +412,19 @@ nav .register:hover{
   font-weight: normal;
   font-style: normal;
 }
-
+.detail p{
+  margin-top: 40px;
+}
+.detail a{
+  color: white;
+  background-color: #1a1a1a;
+  text-decoration: none;
+  padding: 10px 8px 10px 8px;
+  border-radius: 10px;
+}
+.detail a:hover{
+  background-color: #1f1f1f;
+}
 /* tentang */
 .main-tentang{
   color: white;
@@ -347,8 +433,11 @@ nav .register:hover{
 .content-tentang{
   display: flex;
   gap: 7rem;
-  margin: 30px auto;
-  padding: 40px 50px 40px 50px;
+  margin: 20px auto;
+  padding: 30px 50px 30px 50px;
+}
+.perkenalan p{
+  font-size: 18px;
 }
 .img-tentang{
   width: 100%;
@@ -495,6 +584,7 @@ nav .register:hover{
   color: white;
   padding: 20px;
   align-items: center;
+
 }
 
 .box-footer {
