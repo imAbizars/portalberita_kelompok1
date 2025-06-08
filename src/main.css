@@ -70,6 +70,51 @@ nav .register {
 nav .register:hover{
   background-color: rgb(65, 65, 65);
 }
+.user-dropdown {
+  position: relative;
+  color: white;
+  cursor: pointer;
+}
+
+.user-name {
+  color: white;
+  font-weight: bold;
+}
+
+.logout-menu {
+  position: absolute;
+  width: 60px;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+  align-items: center;
+}
+
+.logout-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.logout-menu a:hover {
+  text-decoration: underline;
+}
+
+.user-dropdown:hover .logout-menu {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+
+
 .marquee {
   overflow: hidden;
   width: 100%;  
