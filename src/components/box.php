@@ -25,7 +25,15 @@ $resultkategori = $conn->query($querykategori);
                 
                 <div class="berita-content"> <!-- GANTI INI -->
                     <p><?= substr($row['konten'], 0, 100); ?>...</p>
-                    <small><?= date('d M Y', strtotime($row['created_at'])); ?> | <?= $row['nama_kategori']; ?></small>
+                    <div class="berita-meta">
+                        <small><?= date('d M Y', strtotime($row['created_at'])); ?> | <?= $row['nama_kategori']; ?></small>
+                        <i class="fa-solid fa-thumbs-up">
+                            <?php if ($row['like'] > 0) echo $row['like']; ?>
+                        </i>
+                        <i class="fa-solid fa-thumbs-down">
+                            <?php if ($row['unlike'] > 0) echo $row['unlike']; ?>
+                        </i>
+                    </div>
                 </div>
                 
                 <a href="detail.php?id=<?= $row['id']; ?>">Baca Selengkapnya</a>

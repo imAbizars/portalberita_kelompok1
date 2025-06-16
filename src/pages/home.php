@@ -100,7 +100,7 @@ include "../db/koneksi.php";
 
     });
     </script>
-    
+    <script src="https://kit.fontawesome.com/73fba7024b.js" crossorigin="anonymous"></script>
 <body>
     <?php include "../components/navbar.php";?>
   <main>
