@@ -100,7 +100,7 @@ include "../db/koneksi.php";
 
     });
     </script>
-
+    
 <body>
     <?php include "../components/navbar.php";?>
   <main>

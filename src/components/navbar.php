@@ -1,11 +1,31 @@
-<?php session_start(); ?>
+<?php 
+session_start();
+include '../db/koneksi.php';
+
+$kategoriQuery = $conn->query("SELECT nama_kategori FROM kategori");
+$kategoriList = [];
+while ($row = $kategoriQuery->fetch_assoc()){
+    $kategoriList[]=$row['nama_kategori'];
+}
+?>
 <nav>
     <h2>Portal Berita</h2>
     <ul>
         <li><a href="../pages/home.php">Beranda</a></li>
-        <li><a href="">Berita</a></li>
-      <li><a href="../pages/tentangkami.php">Tentang Kami</a></li>
-      <li><a href="faq.php">FAQ</a></li>
+        <li class="dropdown">
+            <a href="">Berita <span class="dropdown-icon">&#9662;</span></a>
+            <ul class="dropdown-menu">
+                <?php foreach ($kategoriList as $kategori): ?>
+                    <li>
+                        <a href="berita.php?kategori=<?= urlencode($kategori) ?>">
+                            <?= htmlspecialchars($kategori) ?>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </li>
+        <li><a href="../pages/tentangkami.php">Tentang Kami</a></li>
+        <li><a href="faq.php">FAQ</a></li>
     </ul>
 
     <?php if (isset($_SESSION['user'])): ?>

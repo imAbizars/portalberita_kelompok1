@@ -70,6 +70,42 @@ nav .register {
 nav .register:hover{
   background-color: rgb(65, 65, 65);
 }
+/* Container dropdown */
+nav ul li.dropdown {
+    position: relative;
+}
+
+nav ul li .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a;
+    border-radius: 20px;
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    top: 100%;
+    left: 0;
+    z-index: 999;
+}
+
+nav ul li .dropdown-menu li {
+  padding: 5px 10px;
+}
+
+nav ul li .dropdown-menu li a {
+    color: white;
+    text-decoration: none;
+}
+nav ul li.dropdown .dropdown-menu {
+    display: none;
+}
+
+nav ul li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+nav ul li .dropdown-menu li a:hover{
+  text-decoration: underline;
+}
 .user-dropdown {
   position: relative;
   color: white;
@@ -449,6 +485,13 @@ nav .register:hover{
   color: #666;
   font-size: 14px;
   margin-bottom: 10px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.like-box .unlike-box button{
+  background-color: #3b3b3b;
 }
 
 .konten {
@@ -521,7 +564,7 @@ nav .register:hover{
 }
 .content-tentang2{
     background-color: rgb(56, 56, 56);
-    padding: 50px 50px 40px 50px;
+    padding: 50px 50px 60px 50px;
 }
 
 .team-scroll {
@@ -568,9 +611,9 @@ nav .register:hover{
 }
 
 .faq{
-  border: 2px solid white;
   color: white;
   display: flex;
+  padding:50px 0 50px 0;
 }
 .faq-container{
   padding: 40px 30px 40px 30px;
@@ -600,9 +643,7 @@ nav .register:hover{
   transition: 0.3s ease-in-out;
   margin: 0 10px 0 10px;
 }
-.faq-answer li{
-  
-}
+
 .faq-question::after {
     content: '+';
     position: absolute;
