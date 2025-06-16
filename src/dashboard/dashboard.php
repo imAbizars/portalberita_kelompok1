@@ -25,7 +25,7 @@ if ($_SESSION['role'] !== 'admin') {
 //  aktif
 $page = $_GET['page'] ?? 'tambahberita';
 
-$allowed_pages = ['tambahberita', 'daftarberita'];
+$allowed_pages = ['tambahberita', 'daftarberita','editberita'];
 if (!in_array($page, $allowed_pages)) {
     $page = 'tambahberita';
 }
@@ -34,6 +34,7 @@ if (!in_array($page, $allowed_pages)) {
 $page_titles = [
     'tambahberita' => 'Tambah Berita',
     'daftarberita' => 'Daftar Berita',
+    'editberita'=>'Edit Berita'
 ];
 
 $judul_halaman = $page_titles[$page] ?? 'Dashboard';

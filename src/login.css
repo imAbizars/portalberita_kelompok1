@@ -48,7 +48,13 @@ button {
 button:hover{
     background-color: #3e88ff;
 }
-
+.item-content {
+    display: flex;
+    flex-direction: row;
+    gap: 25px; /* jarak antar link */
+    margin-top: 15px;
+    justify-content: space-between;
+}
 .image {
     flex: 1;
     background-color: #eaeaea;

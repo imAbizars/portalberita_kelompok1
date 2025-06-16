@@ -60,10 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="password" name="password" required><br><br>
                     <button type="submit">Login</button>
                 </form>
-                <p>Belum Punya Akun?<a href="../pages/register.php">Daftar Disini</a></p>
-                <?php if (isset($_GET['logout']) && $_GET['logout'] == 1): ?>
-                    <div class="alert success">Anda telah berhasil logout.</div>
-                <?php endif; ?>
+                <div class="item-content">
+                    <p>Belum Punya Akun?<a href="../pages/register.php">Daftar Disini</a></p>
+                    <p><a href="../pages/home.php">Kembali Ke Berita</a></p>
+                    <?php if (isset($_GET['logout']) && $_GET['logout'] == 1): ?>
+                        <div class="alert success">Anda telah berhasil logout.</div>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
         <div class="image">

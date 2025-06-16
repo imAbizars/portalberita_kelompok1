@@ -40,6 +40,12 @@ $result = $conn->query($query);
                   <input type='hidden' name='id' value='{$row['id']}'>
                   <button type='submit' style='background-color:red;color:white;border:none;padding:6px 10px;border-radius:4px;'>Hapus</button>
                 </form>
+                <form action='dashboard.php' method='GET' style='display:inline;margin-left:5px;'>
+                  <input type='hidden' name='page' value='editberita'>
+                  <input type='hidden' name='id' value='{$row['id']}'>
+                  <button type='submit' style='background-color:blue;color:white;border:none;padding:6px 10px;border-radius:4px;'>Edit</button>
+                </form>
+
               </td>";
               echo "</tr>";
               $no++;
