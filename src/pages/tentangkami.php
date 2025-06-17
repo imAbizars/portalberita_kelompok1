@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tentang Kami</title>
     <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../../assets/images/newspaper.png" type="image/png" >
 </head>
 
 <body>

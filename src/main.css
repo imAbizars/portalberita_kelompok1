@@ -57,18 +57,20 @@ nav .sign-in {
 }
 nav .register {
   display: inline-block;
-  margin-left: 10px;
   padding: 10px 20px;
   border-radius: 10px;
-   
-  background-color: rgb(156, 156, 156);
+  margin-left: 10px;
+  background-color: rgb(58, 58, 58);
   text-decoration: none;
-  color: black;
+  color: rgb(255, 255, 255);
   transition: background-color 0.3s ease;
 }
 
 nav .register:hover{
-  background-color: rgb(65, 65, 65);
+  background-color: rgb(80, 80, 80);
+}
+nav .sign-in:hover{
+  background-color: #7c7c7c;
 }
 /* Container dropdown */
 nav ul li.dropdown {
@@ -79,7 +81,7 @@ nav ul li .dropdown-menu {
     display: none;
     position: absolute;
     background-color: #1a1a1a;
-    border-radius: 20px;
+    border-radius: 10px;
     list-style: none;
     padding: 20px;
     margin: 0;
@@ -121,8 +123,8 @@ nav ul li .dropdown-menu li a:hover{
   position: absolute;
   width: 60px;
   top: 100%;
-  left: 0;
-  background-color: #333;
+  left: 50%;
+  background-color: #1a1a1a;
   padding: 10px;
   border-radius: 5px;
   white-space: nowrap;
@@ -218,6 +220,10 @@ nav ul li .dropdown-menu li a:hover{
 }
 .listboxfoods a{
   color: white;
+  text-decoration: none;
+}
+.listboxfoods a:hover{
+  text-decoration: underline;
 }
 
 .left-content {

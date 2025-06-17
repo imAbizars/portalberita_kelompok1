@@ -33,6 +33,7 @@ $liked = isset($_SESSION['liked_berita']) && in_array($berita['id'], $_SESSION['
 <title><?= $berita['judul']; ?> - Detail Berita</title>
 <script src="https://kit.fontawesome.com/73fba7024b.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="../main.css">
+<link rel="icon" href="../../assets/images/newspaper.png" type="image/png" >
 </head>
 <body >
     <?php include "../components/navbar.php";?>

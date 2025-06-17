@@ -17,21 +17,33 @@ $query = "
     ORDER BY b.created_at DESC
 ";
 $result = $conn->query($query);
+$kategoriQuery = "
+    SELECT nama_kategori 
+    FROM kategori 
+    WHERE nama_kategori = '$kategori' 
+    LIMIT 1";
+$kategoriResult = $conn->query($kategoriQuery);
+$namaKategori = $kategoriResult && $kategoriResult->num_rows > 0
+    ? $kategoriResult->fetch_assoc()['nama_kategori']
+    : null;
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Berita Kategori: <?= htmlspecialchars($kategori) ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita Kategori: <?= ($kategori) ?></title>
     <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../../assets/images/newspaper.png" type="image/png" >
 </head>
 <body>
     <?php include "../components/navbar.php"; ?>
 
     <main>
         <div class="berita">
-            <h1 class="page-title">Berita Kategori: <?= htmlspecialchars($kategori) ?></h1>
+           
+            <h1>Berita Kategori: <?= $namaKategori ? ucwords(strtolower($namaKategori)) : 'Tidak Diketahui'; ?></h1>
                 <?php if ($result->num_rows > 0): ?>
                     <div class="news-grid">
                         <?php while($row = $result->fetch_assoc()): ?>

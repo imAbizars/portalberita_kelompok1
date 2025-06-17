@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta charset="UTF-8">
     <title>Registrasi</title>
     <link rel="stylesheet" href="../register.css">
+    <link rel="icon" href="../../assets/images/newspaper.png" type="image/png" >
 </head>
 <body>
     <div class="container">
