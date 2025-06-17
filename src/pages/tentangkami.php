@@ -34,7 +34,7 @@
                 </p>
             </div>
             <div class="img-tentang">
-                <img src="../../assets/images/teamwork.jpg" alt="">
+                <img src="../../assets/images/KelompokPwl.jpeg" alt="">
             </div>
         </div>
         <div class="content-tentang2">

@@ -195,7 +195,7 @@ nav ul li .dropdown-menu li a:hover{
 }
 .container {
   display: flex;
-  height: 80rem;
+  height: auto;
 }
 
 .listfoods{
@@ -319,6 +319,7 @@ nav ul li .dropdown-menu li a:hover{
 }
 .box-berita {
   padding-left: 20px;
+  padding-bottom: 50px;
   height: 100%;
 }
 .kategoriberita {

@@ -24,18 +24,18 @@
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    Apa Sih Itu Portal Berita Kami?
+                    Apakah Pembaca Dapat Mensubmit Berita Ke Portal Ini?
                 </div>
                 <div class="faq-answer">
-                    <li>Portal Berita Kami adalah situs yang menyediakan informasi aktual dan terpercaya dari berbagai kategori seperti nasional, teknologi, ekonomi, hiburan, dan lainnya.</li>
+                    <li>Pembaca dapat mensubmit berita kepada kami, berita tersebut akan kami kurasi dulu untuk ke valid an isi berita dan perbaikan penulisan bila perlu, apabila berita ditolak atau pun diposting kami akan menghubungi partisipan</li>
                 </div>
             </div>
             <div class="faq-item">
                 <div class="faq-question">
-                    Apa Sih Itu Portal Berita Kami?
+                    Bagaimana Cara Mensubmit Berita Kita?
                 </div>
                 <div class="faq-answer">
-                    <li>Portal Berita Kami adalah situs yang menyediakan informasi aktual dan terpercaya dari berbagai kategori seperti nasional, teknologi, ekonomi, hiburan, dan lainnya.</li>
+                    <li>Pembaca dapat mengirimkan email dengan Subject "Berita Mail" ke alamat email portalberita@gmail.com.</li>
                 </div>
             </div>
         </div>
