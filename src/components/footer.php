@@ -1,5 +1,5 @@
 <?php
-include "../db/koneksi.php";
+include __DIR__ . '/../db/koneksi.php';
 
 $query = "SELECT id, nama_kategori FROM kategori";
 $resultkategori = $conn->query($query);
@@ -24,9 +24,9 @@ if (!empty($temp)) {
 <div class="footer">
     <div class="box-footer">
         <ul class="footer-column">
-            <li><a href="../pages/home.php">Beranda</a></li>
-            <li><a href="../pages/tentangkami.php">Tentang Kami</a></li>
-            <li><a href="../pages/faq.php">FAQ</a></li>
+            <li><a href="index.php">Beranda</a></li>
+            <li><a href="index.php?page=tentangkami">Tentang Kami</a></li>
+            <li><a href="index.php?page=faq">FAQ</a></li>
             <li><a href="../pages/kontak.php">Kontak</a></li>
         </ul>
 
@@ -34,7 +34,7 @@ if (!empty($temp)) {
             <ul class="footer-column">
                 <?php foreach ($chunk as $kategori): ?>
                     <li>
-                        <a href="berita.php?kategori=<?= urlencode($kategori['nama_kategori']) ?>">
+                        <a href="index.php?page=berita&kategori=<?= urlencode($kategori['nama_kategori']) ?>">
                             <?= htmlspecialchars($kategori['nama_kategori']) ?>
                         </a>
                     </li>

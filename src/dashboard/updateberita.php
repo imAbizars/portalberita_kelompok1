@@ -1,5 +1,5 @@
 <?php
-include '../db/koneksi.php';
+include __DIR__ . '/../db/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = intval($_POST['id']);
@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Cek apakah ada file gambar baru
     if (!empty($_FILES['image']['name'])) {
-        $targetDir = "../../images/";
+        $targetDir = "../../../tugaskelompok/images/";
         $imageName = basename($_FILES["image"]["name"]);
         $imagePath = $targetDir . $imageName;
 
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $conn->query("INSERT INTO berita_kategori (berita_id, kategori_id) VALUES ($id, $cat_id)");
     }
 
-    header("Location: dashboard.php?page=daftarberita");
+    header("Location: ../../index.php?page=dashboard&dashboard_page=daftarberita");
     
     exit;
 } else {

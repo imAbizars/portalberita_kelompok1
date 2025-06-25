@@ -3,5 +3,5 @@ session_start();
 session_unset();      
 session_destroy();    
 
-header("Location: ../pages/login.php?logout=1");
+header("Location: ../../index.php?page=login&logout=1");
 exit();

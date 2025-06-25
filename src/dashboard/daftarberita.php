@@ -1,5 +1,5 @@
 <?php
-include '../db/koneksi.php';
+include __DIR__ . '/../db/koneksi.php';
 
 $query = "SELECT b.id, b.judul, b.konten, b.image, b.created_at,
         GROUP_CONCAT(k.nama_kategori SEPARATOR ', ') AS kategori
@@ -33,18 +33,20 @@ $result = $conn->query($query);
               echo "<td>{$row['judul']}</td>";
               echo "<td>{$row['kategori']}</td>";
               echo "<td>" . substr(strip_tags($row['konten']), 0, 100) . "...</td>";
-              echo "<td><img src='../../images/{$row['image']}' alt='Gambar' width='80'></td>";
+              echo "<td><img src='../../../tugaskelompok/images/{$row['image']}' alt='Gambar' width='80'></td>";
               echo "<td>{$row['created_at']}</td>";
-              echo "<td>
-                <form action='hapusberita.php' method='POST' onsubmit=\"return confirm('Yakin ingin menghapus berita ini?');\">
+              echo "<td>  
+                <form action='src/dashboard/hapusberita.php' method='POST' onsubmit=\"return confirm('Yakin ingin menghapus berita ini?');\">
                   <input type='hidden' name='id' value='{$row['id']}'>
                   <button type='submit' style='background-color:red;color:white;border:none;padding:6px 10px;border-radius:4px;'>Hapus</button>
-                </form>
-                <form action='dashboard.php' method='GET' style='display:inline;margin-left:5px;'>
-                  <input type='hidden' name='page' value='editberita'>
+                </form><br>
+                <form action='index.php' method='GET' style='display:inline;margin-left:5px;'>
+                  <input type='hidden' name='page' value='dashboard'>
+                  <input type='hidden' name='dashboard_page' value='editberita'>
                   <input type='hidden' name='id' value='{$row['id']}'>
                   <button type='submit' style='background-color:blue;color:white;border:none;padding:6px 10px;border-radius:4px;'>Edit</button>
                 </form>
+
 
               </td>";
               echo "</tr>";

@@ -1,10 +1,10 @@
 <?php 
-include "../db/koneksi.php";
+include __DIR__ . '/../db/koneksi.php';
 
 $error = '';
 $success = '';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if (isset($_POST['submit'])) {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
     $confirm = $_POST['confirm_password'];
@@ -38,28 +38,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Registrasi</title>
-    <link rel="stylesheet" href="../register.css">
-    <link rel="icon" href="../../assets/images/newspaper.png" type="image/png" >
-</head>
-<body>
-    <div class="container">
-        <div class="form">
-            <h2>Form Registrasi</h2>
-    
-            <?php if ($error): ?>
-                <p style="color:red;"><?= $error ?></p>
-            <?php endif; ?>
-    
-            <?php if ($success): ?>
-                <p style="color:green;"><?= $success ?></p>
-            <?php endif; ?>
-            <div class="content">
+<div class="container">
+    <div class="form">
+        <div class="content">
+                <?php if ($error): ?>
+                    <p style="color:red;"><?= $error ?></p>
+                <?php endif; ?>
+                <?php if ($success): ?>
+                    <p style="color:green;"><?= $success ?></p>
+                <?php endif; ?>
+                <h2>Form Registrasi</h2>
                 <form method="POST" action="">
                     <label for="username">Username:</label><br>
                     <input type="text" name="username" id="username" required><br><br>
@@ -70,14 +58,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <label for="confirm_password">Konfirmasi Password:</label><br>
                     <input type="password" name="confirm_password" id="confirm_password" required><br><br>
         
-                    <button type="submit">Daftar</button>
+                    <button type="submit" name="submit">Daftar</button>
                 </form>
-                <p>Sudah punya akun? <a href="../pages/login.php">Login di sini</a></p>
+                <p>Sudah punya akun? <a href="index.php?page=login">Login di sini</a></p>
             </div>
-        </div>
-        <div class="image">
-            <img src="../../assets/images/gedung1.jpg" alt="Login Image" style="height: 100vh; object-fit: cover;">
-        </div>
-        </div>
-</body>
-</html>
+    </div>
+    <div class="image">
+        <img src="../../../tugaskelompok/assets/images/gedung.jpg" alt="Login Image" style="height: 100vh; object-fit: cover;">
+    </div>
+</div>

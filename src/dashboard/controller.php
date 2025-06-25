@@ -1,11 +1,11 @@
 <?php
-include '../db/koneksi.php';
+include __DIR__ . '/../db/koneksi.php';
 $title        = $_POST['title'];
 $content      = $_POST['content'];
 $category_ids = $_POST['category_ids']; // array kategori
 $gambar_name  = $_FILES['image']['name'];
 $tmp_name     = $_FILES['image']['tmp_name'];
-$folder       = "../../images/";
+$folder       = "../../../tugaskelompok/images/";
 $upload_path  = $folder . basename($gambar_name);
 
 move_uploaded_file($tmp_name, $upload_path);
@@ -25,8 +25,7 @@ if ($stmt) {
             $stmt_kat->bind_param("ii", $berita_id, $cat_id);
             $stmt_kat->execute();
         }
-
-        header("Location: dashboard.php?page=daftarberita");
+        header("Location: ../../index.php?page=dashboard&dashboard_page=daftarberita");
         exit();
     } else {
         echo "Gagal menambahkan berita: " . $stmt->error;

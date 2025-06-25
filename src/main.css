@@ -1,9 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #272727;
   overflow-x: hidden;
+  padding: 0;
+  
 }
 
 nav {
@@ -196,6 +199,7 @@ nav ul li .dropdown-menu li a:hover{
 .container {
   display: flex;
   height: auto;
+
 }
 
 .listfoods{
@@ -310,6 +314,9 @@ nav ul li .dropdown-menu li a:hover{
 }
 .content{
     padding-left: 40px;
+}
+.content h1,.subjudul{
+  padding-left: 20px;
 }
 .subjudul{
   font-style: italic;
@@ -537,12 +544,15 @@ nav ul li .dropdown-menu li a:hover{
 }
 .content-tentang{
   display: flex;
-  gap: 7rem;
   margin: 20px auto;
-  padding: 30px 50px 30px 50px;
+  padding: 30px 50px 30px 70px;
 }
 .perkenalan p{
   font-size: 18px;
+}
+.perkenalan{
+  height: 100%;
+  padding: 0 40px 0 40px;
 }
 .img-tentang{
   width: 100%;
@@ -586,7 +596,7 @@ nav ul li .dropdown-menu li a:hover{
 
 .team-scroll {
   display: flex;
-  gap: 20px;
+  gap: 40px;
   overflow-x: auto;
   padding: 20px 0;
   margin: 30px auto;
@@ -601,10 +611,9 @@ nav ul li .dropdown-menu li a:hover{
 }
 
 .team-box {
-  min-width: 250px;
-  min-width: 250px;
+  max-width: 250px;
+  max-width: 250px;
   flex-shrink: 0;
-  background-color: #545454;
   padding: 10px;
   text-align: center;
   border-radius: 10px;  
@@ -613,8 +622,8 @@ nav ul li .dropdown-menu li a:hover{
 }
 
 .team-box img {
-  width: 120px;
-  height: 120px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 50%;
   margin-bottom: 10px;
@@ -630,18 +639,18 @@ nav ul li .dropdown-menu li a:hover{
 .faq{
   color: white;
   display: flex;
-  padding:50px 0 50px 0;
+  padding:50px 0 75px 50px;
+  gap: 5rem;
 }
 .faq-container{
-  padding: 40px 30px 40px 30px;
-  
+  padding: 40px 30px 40px 30px;  
 }
 .faq-container h1{
   margin-bottom: 50px;
 }
 .faq-item{
   margin-bottom: 10px;
-  max-width: 60rem;
+  max-width: 40rem;
 }
 .faq-question{
   font-weight: bold;
@@ -677,9 +686,7 @@ nav ul li .dropdown-menu li a:hover{
 }
 .faq-img img {
   width: 100%;
-  max-width: 600px;
-  display: block;
-  filter: brightness(80%);
+  max-width: 400px;
 }
 
 .footer {
@@ -727,4 +734,47 @@ nav ul li .dropdown-menu li a:hover{
   font-size: 0.9rem;
   color: #cccccc;
   font-weight: bold;
+}
+
+
+/* komentar */
+.komentar-section{
+  background-color: #242424;
+  padding: 5px 10px 10px 30px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+}
+.komentar-header {
+  display: flex;
+  font-weight: bold;
+  
+  gap: 20px;
+}
+
+.komentar p {
+  margin: 20px 0 20px 7px;
+}
+.form-komentar{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.form-komentar textarea{
+  border-radius: 10px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+.form-komentar button{
+  color: white;
+  border: none;
+  padding: 20px 30px 20px 30px;
+  background-color: #242424;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.form-komentar button:hover{
+  background-color: #2b2b2b;
 }

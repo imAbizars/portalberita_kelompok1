@@ -1,5 +1,5 @@
 <?php
-include '../db/koneksi.php';
+include __DIR__ . '/../db/koneksi.php';
 
 if (!isset($_GET['id'])) {
     echo "ID tidak ditemukan.";
@@ -27,7 +27,7 @@ $selected_kategori = explode(',', $berita['kategori_ids']);
 
 <div class="form-container">
     <h4>Edit Berita</h4>
-    <form action="updateberita.php" method="POST" enctype="multipart/form-data">
+    <form action="src/dashboard/updateberita.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= $berita['id'] ?>">
 
         <label>Judul Berita:</label><br>
@@ -49,7 +49,7 @@ $selected_kategori = explode(',', $berita['kategori_ids']);
 
         <label>Gambar (kosongkan jika tidak ingin ganti):</label><br>
         <input type="file" name="image" accept="image/*"><br><br>
-        <img src="../../images/<?= $berita['image'] ?>" width="120"><br><br>
+        <img src="../../../tugaskelompok/images/<?= $berita['image'] ?>" width="120"><br><br>
 
         <input type="submit" value="Update Berita">
     </form>

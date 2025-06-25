@@ -1,6 +1,6 @@
 <?php
-include '../db/koneksi.php';
-include '../utils/fetchberita.php';
+include __DIR__ . '/../db/koneksi.php';
+include __DIR__ . '/../utils/fetchberita.php';
 
 $querykategori = "SELECT id, nama_kategori FROM kategori";
 $resultkategori = $conn->query($querykategori);
@@ -20,7 +20,7 @@ $resultkategori = $conn->query($querykategori);
     <div class="berita-grid">
         <?php while($row = $result->fetch_assoc()): ?>
             <div class="berita-box" data-kategori="<?= $row['nama_kategori']; ?>">
-                <img src="../../images/<?= $row['image']; ?>" alt="<?= $row['judul']; ?>">
+                <img src="../../../tugaskelompok/images/<?= $row['image']; ?>" alt="<?= $row['judul']; ?>">
                 <h3><?= $row['judul']; ?></h3>
                 
                 <div class="berita-content"> <!-- GANTI INI -->
@@ -36,7 +36,7 @@ $resultkategori = $conn->query($querykategori);
                     </div>
                 </div>
                 
-                <a href="detail.php?id=<?= $row['id']; ?>">Baca Selengkapnya</a>
+                <a href="index.php?page=detail&id=<?= $row['id']; ?>">Baca Selengkapnya</a>
             </div>
         <?php endwhile; ?>
     </div>

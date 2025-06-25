@@ -1,7 +1,10 @@
 <?php
 session_start();
+
+$_SESSION = [];
 session_unset();
 session_destroy();
 
-header("Location:../pages/home.php?logout=1");
-exit();
+
+header("Location: ../../index.php"); 
+exit;

@@ -1,5 +1,8 @@
 <?php
-include '../db/koneksi.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+include __DIR__ . '/../db/koneksi.php';
 
 if (!isset($_GET['id'])) {
     echo "Berita tidak ditemukan.";
@@ -27,17 +30,8 @@ $berita = $result->fetch_assoc();
 $liked = isset($_SESSION['liked_berita']) && in_array($berita['id'], $_SESSION['liked_berita']);
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<title><?= $berita['judul']; ?> - Detail Berita</title>
-<script src="https://kit.fontawesome.com/73fba7024b.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="../main.css">
-<link rel="icon" href="../../assets/images/newspaper.png" type="image/png" >
-</head>
-<body >
-    <?php include "../components/navbar.php";?>
-    <?php include "../components/marquee.php";?>
+
+<?php include "./src/components/marquee.php";?>
     <div class="detail">
         <h1><?= $berita['judul']; ?></h1>
         <div class="meta">
@@ -59,14 +53,52 @@ $liked = isset($_SESSION['liked_berita']) && in_array($berita['id'], $_SESSION['
                 </button>
             </div>
         </div>
-        <img src="../../images/<?= $berita['image']; ?>" alt="<?= $berita['judul']; ?>">
+        <img src="../../../tugaskelompok/images/<?= $berita['image']; ?>" alt="<?= $berita['judul']; ?>">
         <div class="konten">
             <?= $berita['konten']; ?>
+            <!-- Tampilkan Komentar -->
+                <div class="komentar-section">
+                    <h3>Komentar</h3>
+
+                    <?php
+                    $komentarQuery = "
+                        SELECT k.isi, k.created_at, u.username
+                        FROM komentar k
+                        JOIN user u ON k.user_id = u.id
+                        WHERE k.berita_id = $id
+                        ORDER BY k.created_at DESC
+                    ";
+                    $komentarResult = $conn->query($komentarQuery);
+                    ?>
+
+                    <?php if ($komentarResult->num_rows > 0): ?>
+                        <?php while ($komen = $komentarResult->fetch_assoc()): ?>
+                            <div class="komentar">
+                                <div class="komentar-header">
+                                    <span><?= $komen['username']; ?></span>
+                                    <small><?= date('d M Y H:i', strtotime($komen['created_at'])); ?></small>
+                                </div>
+                                <p><?= htmlspecialchars($komen['isi']); ?></p>
+                            </div>
+
+                        <?php endwhile; ?>
+                    <?php else: ?>
+                        <p>Belum ada komentar.</p>
+                    <?php endif; ?>
+                </div>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <form action="/tugaskelompok/src/utils/kirim_komentar.php" method="POST" class="form-komentar">
+                        <input type="hidden" name="berita_id" value="<?= $berita['id']; ?>">
+                        <textarea name="isi" rows="5" cols="40" placeholder="Tulis komentar..." required></textarea>
+                        <button type="submit">Kirim Komentar</button>
+                    </form>
+                <?php else: ?>
+                    <p><a href="index.php?page=login">Login</a> untuk mengirim komentar.</p>
+                <?php endif; ?>
         </div>
     
-        <p><a href="../pages/home.php">← Kembali Beranda</a></p>
+        <p><a href="index.php">← Kembali Beranda</a></p>
     </div>
-    <?php include "../components/footer.php";?>
     <script>
 document.addEventListener("DOMContentLoaded", function () {
     const likeButton = document.getElementById("likeButton");
@@ -80,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
     likeButton.addEventListener("click", function () {
         const beritaId = likeButton.getAttribute("data-berita-id");
 
-        fetch("../utils/like_ajax.php", {
+        fetch("/tugaskelompok/src/utils/like_ajax.php", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -102,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } else if (data.login_required) {
                 alert("Silakan login terlebih dahulu untuk menyukai berita.");
-                window.location.href = "../pages/login.php";
+                window.location.href = "/tugaskelompok/index.php?page=login";
             }
         });
     });
@@ -111,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
     UnlikeButton.addEventListener("click",function(){
         const beritaId = UnlikeButton.getAttribute("data-berita-id");
 
-        fetch("../utils/like_ajax.php",{
+        fetch("/tugaskelompok/src/utils/like_ajax.php",{
             method:"POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -133,12 +165,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             } else if (data.login_required) {
                 alert("Silakan login terlebih dahulu untuk menyukai berita.");
-                window.location.href = "../pages/login.php";
+                window.location.href = "/tugaskelompok/index.php?page=login";
             }
         });
     });
 });
 </script>
+<script src="https://kit.fontawesome.com/73fba7024b.js" crossorigin="anonymous"></script>
 
-</body>
-</html>

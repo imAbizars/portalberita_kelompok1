@@ -1,19 +1,21 @@
 <?php
-session_start();
-include '../db/koneksi.php';
+if(session_status() === PHP_SESSION_NONE){
+  session_start();
+}
+include __DIR__ . '/../db/koneksi.php';
 
 $timeout = 3600;
 
 // login dan role
 if (!isset($_SESSION['user'])) {
-    header("Location: login.php?unauthorized=1");
+    header("Location: index.php?page=login&unauthorized=1");
     exit();
 }
 
 if (isset($_SESSION['last_login']) && (time() - $_SESSION['last_login']) > $timeout) {
     session_unset();
     session_destroy();
-    header("Location: login.php?timeout=1");
+    header("Location: index.php?page=login&timeout=1");
     exit();
 }
 
@@ -23,7 +25,7 @@ if ($_SESSION['role'] !== 'admin') {
 }
 
 //  aktif
-$page = $_GET['page'] ?? 'tambahberita';
+$page = $_GET['dashboard_page'] ?? 'tambahberita';
 
 $allowed_pages = ['tambahberita', 'daftarberita','editberita'];
 if (!in_array($page, $allowed_pages)) {
@@ -39,13 +41,7 @@ $page_titles = [
 
 $judul_halaman = $page_titles[$page] ?? 'Dashboard';
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Dashboard Admin</title>
-  <link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
+
   <div class="dashboard-container">
 
     <!-- sidebar -->
@@ -63,5 +59,3 @@ $judul_halaman = $page_titles[$page] ?? 'Dashboard';
 <script>
   CKEDITOR.replace('editor');
 </script>
-</body>
-</html>

@@ -12,7 +12,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-include '../db/koneksi.php';
+include __DIR__ . '/../db/koneksi.php';
 
 $berita_id = intval($_POST['berita_id']);
 $action = $_POST['action'];

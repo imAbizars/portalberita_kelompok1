@@ -1,7 +1,7 @@
 
 <div class="form-container">
     <h4>Masukkan Berita Hari Ini</h4>
-    <form action="controller.php" method="POST" enctype="multipart/form-data">
+    <form action="src/dashboard/controller.php" method="POST" enctype="multipart/form-data">
       <label>Judul Berita:</label><br>
       <input type="text" name="title" required><br><br>
     
